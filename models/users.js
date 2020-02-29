@@ -5,6 +5,15 @@ module.exports = function (sequelize, DataTypes) {
 
             allowNull: false,
         },
+        email: {
+            type: DataTypes.STRING,
+
+            allowNull: false,
+
+            validate: {
+                isEmail: true
+            }
+        },
         pass: {
             type: DataTypes.STRING,
 
