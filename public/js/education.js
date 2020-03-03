@@ -9,19 +9,51 @@ $(function () {
             role: $("#roleSelect").val()
         };
 
-        console.log(newUser);
         // POST request
-        $.ajax("/api/createuser", {
+        $.ajax("/api/users", {
             type: "POST",
-            data: newUser
-        }).then(
-            function () {
-                console.log(newUser)
-                console.log("New user created.");
+            data: newUser,
+            success: function () {
+                sessionStorage.setItem("username", newUser.username);
 
-                //Add route to main page ?
-                //=======================
+                location.href = "/projectx";
+
+            },
+            error: function (err) {
+                console.log(err);
             }
-        );
+        });
     });
+
+    $(".signIn").on("submit", function (event) {
+        event.preventDefault();
+
+        var user = {
+            username: $("#inputUsername").val().trim(),
+            pass: $("#inputPassword").val().trim()
+        }
+        if (user.username === '') {
+            console.log("Please enter username.")
+        }
+        else if (user.pass === '') {
+            console.log("Please enter password.")
+        }
+        else {
+            $.get("/api/users/" + user.username).then(function (data) {
+                if (data === null) {
+                    console.log("User not found.");
+                }
+                else if (data.username === user.username && data.pass === user.pass) {
+                    sessionStorage.setItem("username", user.username)
+
+                    location.href = "/projectx";
+                }
+                else (
+                    console.log("Invalid username or password")
+                )
+            });
+        }
+
+
+    })
 });
