@@ -9,6 +9,22 @@
 
 #jumboTitle {
     color: white;
+    font-weight: bolder;
+}
+
+.navbar {
+    background-color: rgb(23, 50, 100);
+    color: white;
+    font-weight: bold;
+    justify-content: center !important;
+    text-align: center !important;
+}
+.navbar-brand{
+    
+}
+
+.nav-link {
+    color: white;
 }
 
 #codingVid {
