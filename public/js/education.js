@@ -16,7 +16,7 @@ $(function () {
             success: function () {
                 sessionStorage.setItem("username", newUser.username);
 
-                location.href = "/projectx";
+                location.href = "/html";
 
             },
             error: function (err) {
@@ -46,7 +46,7 @@ $(function () {
                 else if (data.username === user.username && data.pass === user.pass) {
                     sessionStorage.setItem("username", user.username)
 
-                    location.href = "/projectx";
+                    location.href = "/html";
                 }
                 else (
                     console.log("Invalid username or password")

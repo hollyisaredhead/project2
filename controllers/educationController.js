@@ -12,8 +12,16 @@ router.get("/signup", function (req, res) {
     res.render("signup");
 });
 
-router.get("/projectx", function (req, res) {
-    res.render("projectx");
+router.get("/html", function (req, res) {
+    res.render("html");
+});
+
+router.get("/css", function (req, res) {
+    res.render("css");
+});
+
+router.get("/javascript", function (req, res) {
+    res.render("javascript");
 });
 
 router.get("/api/users/:username", function (req, res) {

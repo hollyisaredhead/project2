@@ -1,8 +1,46 @@
-.container{
-    background-color: white;
+.form-group {
+  padding: 5;
+  margin: 10 10;
+}
+  body, html {
+    height: 100%;
+  }
+  .bg {
+    /* The image used */
+    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #jumboTitle {
+    color: white;
 }
 
-.form-group {
-    padding: 30px 0;
-    background-color: #006dcc;
-  }
+#codingVid {
+    background-color: black;
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+.videoTitle {
+    font-weight: bolder;
+    font-size: 30px;
+    border-bottom: lightgray solid 1px;
+    padding-bottom: 10px;
+}
+
+.vidInfo {
+
+}
+
+.commentTitle {
+    font-size: 17px;
+    padding-bottom: 15px;
+    border-bottom: lightgray solid 1px;
+}
