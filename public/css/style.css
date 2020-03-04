@@ -17,3 +17,30 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  #jumboTitle {
+    color: white;
+}
+
+#codingVid {
+    background-color: black;
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+.videoTitle {
+    font-weight: bolder;
+    font-size: 30px;
+    border-bottom: lightgray solid 1px;
+    padding-bottom: 10px;
+}
+
+.vidInfo {
+
+}
+
+.commentTitle {
+    font-size: 17px;
+    padding-bottom: 15px;
+    border-bottom: lightgray solid 1px;
+}
