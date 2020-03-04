@@ -8,6 +8,10 @@ router.get("/", function (req, res) {
     res.render("home");
 });
 
+router.get("/home", function (req, res) {
+    res.render("home");
+});
+
 router.get("/signup", function (req, res) {
     res.render("signup");
 });
