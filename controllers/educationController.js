@@ -46,9 +46,21 @@ router.post("/api/users", function (req, res) {
         pass: req.body.pass,
         role: req.body.role
     }).then(function () {
-        res.json("success");
+        res.json("User added successfully!");
     }).catch(function () {
-        console.log("error signing up, try again");
+        console.log("Error signing up, try again.");
+    });
+});
+
+router.post("/api/comments", function (req, res) {
+    db.Comments.create({
+        user: req.body.user,
+        body: req.body.body,
+        sectionId: req.body.sectionId
+    }).then(function () {
+        res.json("Comment added successfully!")
+    }).catch(function () {
+        console.log("Error submitting comment, try again.")
     });
 });
 

@@ -61,5 +61,26 @@ $(function () {
         };
     });
 
+    $(".submitComment").on("click", function (event) {
+        event.preventDefault();
 
+        var newComment = {
+            user: sessionStorage.getItem("username"),
+            body: $("#commentSection").val().trim(),
+            sectionId: $(this).attr("sectionId")
+        };
+
+        console.log(newComment)
+
+        $.ajax("/api/comments", {
+            type: "POST",
+            data: newComment,
+            success: function () {
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    });
 });
