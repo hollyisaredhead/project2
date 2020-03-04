@@ -3,7 +3,11 @@ module.exports = function (sequelize, DataTypes) {
         user: {
             type: DataTypes.STRING,
 
-            allowNull: false
+            allowNull: false,
+
+            validate: {
+                len: [1]
+            }
         },
         body: {
             type: DataTypes.STRING,

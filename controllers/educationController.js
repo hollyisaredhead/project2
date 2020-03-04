@@ -49,6 +49,7 @@ router.post("/api/users", function (req, res) {
         res.json("User added successfully!");
     }).catch(function () {
         console.log("Error signing up, try again.");
+        res.status(400).send({ error: "Error signing up, try again." });
     });
 });
 
@@ -61,6 +62,7 @@ router.post("/api/comments", function (req, res) {
         res.json("Comment added successfully!")
     }).catch(function () {
         console.log("Error submitting comment, try again.")
+        res.status(400).send({ error: "Error submitting comment, try again." });
     });
 });
 
