@@ -46,11 +46,20 @@
 
 .commentTitle {
     font-size: 17px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     border-bottom: lightgray solid 1px;
 }
 
 img{
   height: 20%;
   width: 10%;
+}
+
+  .comment-container {
+    padding-bottom: 10px;
+    border-top:  lightgray solid 1px;
+}
+
+#userComments {
+    padding-bottom: 10px;
 }

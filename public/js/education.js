@@ -19,8 +19,8 @@ $(function () {
                 location.href = "/html";
 
             },
-            error: function (err) {
-                console.log(err);
+            error: function () {
+                console.log("Error creating user. Make sure all fields are populated.");
             }
         });
     });
@@ -48,7 +48,7 @@ $(function () {
                     console.log("User not found.");
                 }
                 // If user and pass match, set session storage and go to main page
-                else if (data.username === user.username && data.pass === user.pass) {
+                else if (data.username.toLowerCase() === user.username.toLowerCase() && data.pass === user.pass) {
                     sessionStorage.setItem("username", user.username)
 
                     location.href = "/html";
@@ -59,6 +59,33 @@ $(function () {
                 )
             });
         };
+    });
+
+    $(".submitComment").on("click", function (event) {
+        event.preventDefault();
+
+        var newComment = {
+            user: sessionStorage.getItem("username"),
+            body: $("#commentSection").val().trim(),
+            sectionId: $(this).attr("sectionId")
+        };
+
+        console.log(newComment)
+
+        $.ajax("/api/comments", {
+            type: "POST",
+            data: newComment,
+            success: function () {
+                $("#commentSection").val("");
+            },
+            error: function () {
+                console.log("Enter comment body.");
+            }
+        });
+    });
+
+    $(".logOut").on("click", function () {
+        sessionStorage.clear();
     });
 
 });
