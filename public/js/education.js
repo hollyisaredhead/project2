@@ -32,6 +32,8 @@ $(function () {
             username: $("#inputUsername").val().trim(),
             pass: $("#inputPassword").val().trim()
         }
+
+        // Input validation for sign in 
         if (user.username === '') {
             console.log("Please enter username.")
         }
@@ -40,20 +42,23 @@ $(function () {
         }
         else {
             $.get("/api/users/" + user.username).then(function (data) {
+
+                // Validation for if user not found
                 if (data === null) {
                     console.log("User not found.");
                 }
+                // If user and pass match, set session storage and go to main page
                 else if (data.username === user.username && data.pass === user.pass) {
                     sessionStorage.setItem("username", user.username)
 
                     location.href = "/html";
                 }
+                // Show message if user and pass don't match
                 else (
                     console.log("Invalid username or password")
                 )
             });
-        }
+        };
+    });
 
-
-    })
 });
