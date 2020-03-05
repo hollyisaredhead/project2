@@ -30,7 +30,7 @@
             <div class="card-body">
                 <a href="/html">HTML</a>
                 <br>
-                <a href="/css">CSS</a>
+                <a href="/stylesheets">CSS</a>
                 <br>
                 <a href="/javascript">Javascript</a>
             </div>
@@ -81,7 +81,7 @@
             <div class="form-group">
                 <textarea class="form-control" id="commentSection" rows="1"></textarea>
             </div>
-            <button type="submit" class="btn btn-success submit">Submit</button>
+            <button type="submit" class="btn btn-success submit submitComment" sectionId="html">Submit</button>
         </form>
     </div>
 </div>
@@ -91,18 +91,24 @@
     <div class="col-sm-6">
         <div class="comment-container">
             <br>
-            <div class="row" id="userName">
-                <div class="col-sm-6">
-                    Mike
+
+            {{#each comments}}
+            <div class="row">
+                <div class="col-sm-6" id="userName">
+                    {{user}}
                 </div>
             </div>
             <div class="row" id="userComments">
-                <div class="col-sm-8">This is the comment section</div>
+                <div class="col-sm-8">{{body}}</div>
                 <div class="col-sm-4">
-                    <button type="submit" class="btn btn-success submit">edit</button>
-                    <button type="submit" class="btn btn-success submit">delete</button>
+                    <button type="submit" data-id="{{id}}" data-username="{{user}}"
+                        class="btn btn-success submit editComment">edit</button>
+                    <button type="submit" data-id="{{id}}" data-username="{{user}}"
+                        class="btn btn-success submit deleteComment">delete</button>
                 </div>
             </div>
+            {{/each}}
+
         </div>
     </div>
 </div>
