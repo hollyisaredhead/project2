@@ -27,12 +27,6 @@
     color: white;
 }
 
-#codingVid {
-    background-color: black;
-    padding-left: 50px;
-    padding-right: 20px;
-}
-
 .videoTitle {
     font-weight: bolder;
     font-size: 30px;
@@ -42,6 +36,10 @@
 
 .vidInfo {
 
+}
+
+#stackHeader {
+  padding: 10px 0px 10px -5px;
 }
 
 .commentTitle {
