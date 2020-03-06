@@ -167,7 +167,39 @@ $(function () {
         };
     });
 
+    // Stack overflow api
+    function generateStack() {
+        var searchText = $("#search").val();
+        $.ajax({
+            url: `https://api.stackexchange.com/2.2/similar?order=desc&sort=relevance&title=${searchText}&site=stackoverflow`,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            $(".stackResults").html("<h5 class='pl-2' id='stackHeader'>Stack Overflow Results:</h5>");
+
+            for (var i = 0; i < 5; i++) {
+
+                var stackMediaObject = $('<p class="stackInfo"><a href=' + response.items[i].link + ' target="_blank">' + response.items[i].title + '</a></p>')
+
+                console.log(stackMediaObject);
+                $(".stackResults").append(stackMediaObject);
+
+            }
+
+        });
+    }
+
+    $("#stackBtn").on("click", function () {
+
+        $(".stackResults").empty();
+
+        generateStack();
+
+    })
+
     $(".logOut").on("click", function () {
         sessionStorage.clear();
     });
 });
+
