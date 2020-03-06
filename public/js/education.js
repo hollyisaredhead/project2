@@ -174,14 +174,17 @@ $(function () {
         }).then(function (response) {
             console.log(response);
 
-            $(".stackResults").html("<h4 class='pl-2' id='stackHeader'>Stack Overflow Results:</h4>");
+
+
+            $(".stackResults").html("<h4 class='pl-2' id='stackHeader'>Stack Overflow Results:</h4><ul class='list'></ul>");
+
 
             for (var i = 0; i < 5; i++) {
 
-                var stackMediaObject = $('<p class="stackInfo"><a href=' + response.items[i].link + ' target="_blank">' + response.items[i].title + '</a></p>')
+                var stackMediaObject = $('<li class="stackInfo"><a href=' + response.items[i].link + ' target="_blank">' + response.items[i].title + '</a></li>')
 
                 console.log(stackMediaObject);
-                $(".stackResults").append(stackMediaObject);
+                $(".list").append(stackMediaObject);
 
             }
 
