@@ -50,6 +50,8 @@
 #userName {
   margin-left: 5px;
   margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .submitComment {
