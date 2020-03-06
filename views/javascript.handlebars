@@ -48,9 +48,13 @@
     </div>
     <div class="col-sm-3">
         <h6>For additional information:</h6>
-        <div class="card">
+        <div class="card" id="stackCard">
             <div class="card-body">
-                <div class="stackApi">Search Stack Overflow:</div>
+                <div class="stackApi">Search Stack Overflow:
+                    <input type="text" id="search"><button id="stackBtn">submit</button>
+                    <br>
+                    <div class="stackResults"></div>
+                </div>
                 <br>
                 <div class="youtubeApi">Search for additional videos:</div>
                 <br>
@@ -105,9 +109,10 @@
                 <div class="col-sm-8">{{body}}</div>
                 <div class="col-sm-4">
                     <button type="submit" data-id="{{id}}" data-username="{{user}}"
-                        class="btn btn-success submit editComment">edit</button>
+                        class="btn btn-success commentBtn submit editComment"><i class="far fa-edit fa-sm"></i></button>
                     <button type="submit" data-id="{{id}}" data-username="{{user}}"
-                        class="btn btn-success submit deleteComment">delete</button>
+                        class="btn btn-success commentBtn submit deleteComment"><i
+                            class="far fa-trash-alt fa-sm"></i></button>
                 </div>
             </div>
             {{/each}}
