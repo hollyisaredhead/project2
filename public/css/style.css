@@ -26,15 +26,16 @@
     color: white;
 }
 
+.codelogo{
+  width: 50px;
+  height: 50px;
+}
+
 .videoTitle {
     font-weight: bolder;
     font-size: 30px;
     border-bottom: lightgray solid 1px;
     padding-bottom: 10px;
-}
-
-.vidInfo {
-
 }
 
 #stackHeader {
