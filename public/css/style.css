@@ -63,9 +63,15 @@ img{
     padding-bottom: 10px;
 }
 
-.btn{
+.btnfrm{
   margin-left: 10px;
   width: 96%;
+  margin-bottom: 5px;
+}
+
+.btnhome{
+  margin-left: 10px;
+  width: 94%;
   margin-bottom: 5px;
 }
 
