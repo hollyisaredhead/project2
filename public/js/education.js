@@ -101,6 +101,53 @@ $(function () {
         });
     });
 
+    $(".editComment").on("click", function () {
+        var id = $(this).data("id");
+
+        if (sessionStorage.getItem("username") != $(this).data("username")) {
+            console.log("Cannot edit other users' comments.")
+        }
+        else {
+            var commentText = $(`#commentId${id}`).text();
+
+            if ($(this).data("editorsave") === "edit") {
+                $(this).data("editorsave", "save");
+
+                $(`#commentId${id}`)
+                    .html(`<div class="col-sm-8 commentBody" id="commentId${id}">
+                        <textarea class="editCommentVal${id}">${commentText}</textarea>
+                    </div>`);
+
+                $(`#editId${id}`).text("save");
+            }
+            else {
+                $(this).data("editorsave", "edit");
+                var editedComment = {
+                    comment: $(`.editCommentVal${id}`).val().trim()
+                };
+
+                $.ajax("/api/comments/" + id, {
+                    type: "PUT",
+                    data: editedComment,
+                    success: function () {
+                        $(`#commentId${id}`)
+                            .html(`<div class="col-sm-8 commentBody" id="commentId${id}">${editedComment}</div>`);
+
+                    },
+                    error: function () {
+                        $(`#commentId${id}`)
+                            .html(`<div class="col-sm-8 commentBody" id="commentId${id}">${commentText}</div>`);
+                        console.log("error editing the comment");
+                        location.reload();
+                    }
+                }).then(function () {
+                    $(`#editId${id}`).text("save");
+                    location.reload();
+                });
+            };
+        };
+    });
+
     $(".deleteComment").on("click", function () {
         var id = $(this).data("id");
 

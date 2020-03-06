@@ -100,13 +100,12 @@
                 </div>
             </div>
             <div class="row" id="userComments">
-                <div class="col-sm-8">{{body}}</div>
+                <div class="col-sm-8 commentBody" id="commentId{{id}}">{{body}}</div>
                 <div class="col-sm-4">
+                    <button type="submit" data-id="{{id}}" data-username="{{user}}" data-editorsave="edit"
+                        class="btn btn-success submit editComment" id="editId{{id}}">edit</button>
                     <button type="submit" data-id="{{id}}" data-username="{{user}}"
-                        class="btn btn-info commentBtn submit editComment"><i class="far fa-edit fa-sm"></i></button>
-                    <button type="submit" data-id="{{id}}" data-username="{{user}}"
-                        class="btn btn-info commentBtn submit deleteComment"><i
-                            class="far fa-trash-alt fa-sm"></i></button>
+                        class="btn btn-success submit deleteComment" id="deleteId{{id}}">delete</button>
                 </div>
             </div>
             {{/each}}
