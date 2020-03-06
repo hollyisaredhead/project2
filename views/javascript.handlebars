@@ -96,18 +96,18 @@
             <br>
 
             {{#each comments}}
-            <div class="row" id="userName">
-                <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6" id="userName">
                     {{user}}
                 </div>
             </div>
             <div class="row" id="userComments">
-                <div class="col-sm-8">{{body}}</div>
+                <div class="col-sm-8 commentBody" id="commentId{{id}}">{{body}}</div>
                 <div class="col-sm-4">
+                    <button type="submit" data-id="{{id}}" data-username="{{user}}" data-editorsave="edit"
+                        class="btn btn-success submit editComment" id="editId{{id}}">edit</button>
                     <button type="submit" data-id="{{id}}" data-username="{{user}}"
-                        class="btn btn-success submit editComment">edit</button>
-                    <button type="submit" data-id="{{id}}" data-username="{{user}}"
-                        class="btn btn-success submit deleteComment">delete</button>
+                        class="btn btn-success submit deleteComment" id="deleteId{{id}}">delete</button>
                 </div>
             </div>
             {{/each}}
