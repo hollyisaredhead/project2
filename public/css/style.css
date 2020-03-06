@@ -26,15 +26,16 @@
     color: white;
 }
 
+.codelogo{
+  width: 50px;
+  height: 50px;
+}
+
 .videoTitle {
     font-weight: bolder;
     font-size: 30px;
     border-bottom: lightgray solid 1px;
     padding-bottom: 10px;
-}
-
-.vidInfo {
-
 }
 
 #stackHeader {
@@ -50,6 +51,8 @@
 #userName {
   margin-left: 5px;
   margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .submitComment {
