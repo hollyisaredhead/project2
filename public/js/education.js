@@ -174,7 +174,7 @@ $(function () {
         }).then(function (response) {
             console.log(response);
 
-            $(".stackResults").html("<h5 class='pl-2' id='stackHeader'>Stack Overflow Results:</h5>");
+            $(".stackResults").html("<h4 class='pl-2' id='stackHeader'>Stack Overflow Results:</h4>");
 
             for (var i = 0; i < 5; i++) {
 

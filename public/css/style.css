@@ -109,3 +109,19 @@ h5{
 
   font-family: 'Noto Sans', sans-serif;
 }
+
+h4{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 12px;
+  margin-left: -10px;
+  margin-top: 8px;
+}
+
+.stackResults{
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.stackApi{
+  font-size: 15px;
+}
