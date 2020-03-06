@@ -6,12 +6,18 @@ $(function () {
         $(".submitComment").prop("disabled", true);
         $("#commentSection").val("Please sign in to add a comment.");
         $("#commentSection").prop("readonly", true);
+
+        $(".navUsername").text("");
+
     }
     else {
         $(".logOut").text("Log Out");
         $(".submitComment").prop("disabled", false);
         $("#commentSection").val("");
         $("#commentSection").prop("readonly", false);
+
+        $(".navUsername").text(`Logged in as: ${sessionStorage.getItem("username")}`);
+
     }
 
     $(".newUser").on("submit", function (event) {
