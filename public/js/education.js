@@ -1,4 +1,19 @@
 $(function () {
+
+    if (sessionStorage.getItem("username") === "" ||
+        sessionStorage.getItem("username") === null) {
+        $(".logOut").text("Sign In");
+        $(".submitComment").prop("disabled", true);
+        $("#commentSection").val("Please sign in to add a comment.");
+        $("#commentSection").prop("readonly", true);
+    }
+    else {
+        $(".logOut").text("Log Out");
+        $(".submitComment").prop("disabled", false);
+        $("#commentSection").val("");
+        $("#commentSection").prop("readonly", false);
+    }
+
     $(".newUser").on("submit", function (event) {
         event.preventDefault();
 
@@ -49,7 +64,7 @@ $(function () {
                 }
                 // If user and pass match, set session storage and go to main page
                 else if (data.username.toLowerCase() === user.username.toLowerCase() && data.pass === user.pass) {
-                    sessionStorage.setItem("username", user.username)
+                    sessionStorage.setItem("username", data.username)
 
                     location.href = "/html";
                 }
@@ -81,11 +96,31 @@ $(function () {
             error: function () {
                 console.log("Enter comment body.");
             }
+        }).then(function () {
+            location.reload()
         });
+    });
+
+    $(".deleteComment").on("click", function () {
+        var id = $(this).data("id");
+
+        if (sessionStorage.getItem("username") != $(this).data("username")) {
+            console.log("Cannot delete other users' comments.")
+        }
+        else {
+            $.ajax("api/comments/" + id, {
+                type: "DELETE"
+            }).then(
+                function () {
+                    console.log("Deleted comment of id: " + id);
+
+                    location.reload();
+                }
+            );
+        };
     });
 
     $(".logOut").on("click", function () {
         sessionStorage.clear();
     });
-
 });

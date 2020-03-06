@@ -17,15 +17,51 @@ router.get("/signup", function (req, res) {
 });
 
 router.get("/html", function (req, res) {
-    res.render("html");
+    db.Comments.findAll({
+        where: {
+            sectionId: "html"
+        }
+    }).map(el => el.get({ plain: true }))
+        .then(function (dbComments) {
+            var hbsObject = {
+                comments: dbComments
+            }
+
+            res.render("html", hbsObject);
+        });
+
 });
 
-router.get("/css", function (req, res) {
-    res.render("css");
+router.get("/stylesheets", function (req, res) {
+    db.Comments.findAll({
+        where: {
+            sectionId: "css"
+        }
+    }).map(el => el.get({ plain: true }))
+        .then(function (dbComments) {
+            var hbsObject = {
+                comments: dbComments
+            }
+
+            res.render("css", hbsObject);
+        });
+
 });
 
 router.get("/javascript", function (req, res) {
-    res.render("javascript");
+    db.Comments.findAll({
+        where: {
+            sectionId: "javascript"
+        }
+    }).map(el => el.get({ plain: true }))
+        .then(function (dbComments) {
+            var hbsObject = {
+                comments: dbComments
+            }
+
+            res.render("javascript", hbsObject);
+        });
+
 });
 
 router.get("/api/users/:username", function (req, res) {
@@ -63,6 +99,16 @@ router.post("/api/comments", function (req, res) {
     }).catch(function () {
         console.log("Error submitting comment, try again.")
         res.status(400).send({ error: "Error submitting comment, try again." });
+    });
+});
+
+router.delete("/api/comments/:id", function (req, res) {
+    db.Comments.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function () {
+        res.json("Comment deleted successfully!");
     });
 });
 
