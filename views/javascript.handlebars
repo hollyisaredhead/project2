@@ -83,7 +83,7 @@
             <div class="form-group">
                 <textarea class="form-control" id="commentSection" rows="1"></textarea>
             </div>
-            <button type="submit" class="btn btn-success submit submitComment" sectionId="javascript">Submit</button>
+            <button type="submit" class="btn btn-info submit submitComment" sectionId="javascript">Submit</button>
         </form>
     </div>
 </div>
@@ -95,18 +95,20 @@
             <br>
 
             {{#each comments}}
-            <div class="row" id="userName">
-                <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6" id="userName">
                     {{user}}
                 </div>
             </div>
             <div class="row" id="userComments">
-                <div class="col-sm-8">{{body}}</div>
+                <div class="col-sm-8 commentBody" id="commentId{{id}}">{{body}}</div>
                 <div class="col-sm-4">
+                    <button type="submit" data-id="{{id}}" data-username="{{user}}" data-editorsave="edit"
+                        class="btn btn-info submit editComment" id="editId{{id}}"><i
+                            class="far fa-edit fa-sm"></i></button>
                     <button type="submit" data-id="{{id}}" data-username="{{user}}"
-                        class="btn btn-success submit editComment">edit</button>
-                    <button type="submit" data-id="{{id}}" data-username="{{user}}"
-                        class="btn btn-success submit deleteComment">delete</button>
+                        class="btn btn-info submit deleteComment" id="deleteId{{id}}"><i
+                            class="far fa-trash-alt fa-sm"></i></button>
                 </div>
             </div>
             {{/each}}
