@@ -118,7 +118,7 @@ $(function () {
                         <textarea class="editCommentVal${id}">${commentText}</textarea>
                     </div>`);
 
-                $(`#editId${id}`).text("save");
+                $(`#editId${id}`).html('<i class="far fa-save fa-sm"></i>');
             }
             else {
                 $(this).data("editorsave", "edit");
@@ -131,18 +131,16 @@ $(function () {
                     data: editedComment,
                     success: function () {
                         $(`#commentId${id}`)
-                            .html(`<div class="col-sm-8 commentBody" id="commentId${id}">${editedComment}</div>`);
-
+                            .html(`${editedComment.comment}`);
+                        $(`#editId${id}`).html('<i class="far fa-edit fa-sm">');
                     },
                     error: function () {
                         $(`#commentId${id}`)
-                            .html(`<div class="col-sm-8 commentBody" id="commentId${id}">${commentText}</div>`);
+                            .html(`${commentText}`);
                         console.log("error editing the comment");
-                        location.reload();
                     }
                 }).then(function () {
-                    $(`#editId${id}`).text("save");
-                    location.reload();
+                    $(`#editId${id}`).html('<i class="far fa-edit fa-sm">');
                 });
             };
         };
