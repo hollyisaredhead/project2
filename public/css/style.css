@@ -26,6 +26,11 @@
     color: white;
 }
 
+.codelogo{
+  width: 50px;
+  height: 50px;
+}
+
 .videoTitle {
     font-weight: bolder;
     font-size: 30px;
@@ -33,9 +38,7 @@
     padding-bottom: 10px;
 }
 
-.vidInfo {
-
-}
+\
 
 #stackHeader {
   padding: 10px 0px 10px -5px;
