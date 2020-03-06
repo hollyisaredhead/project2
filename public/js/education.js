@@ -103,7 +103,7 @@ $(function () {
 
     $(".editComment").on("click", function () {
         var id = $(this).data("id");
-        var commentText = $(".commentBody").text();
+        var commentText = $(`#commentId${id}`).text();
 
         if ($(this).data("editorsave") === "edit") {
             $(this).data("editorsave", "save");
