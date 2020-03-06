@@ -102,6 +102,21 @@ router.post("/api/comments", function (req, res) {
     });
 });
 
+router.put("/api/comments/:id", function (req, res) {
+
+    console.log(req.body);
+
+    db.Comments.update(
+        { body: req.body.comment },
+        { where: { id: req.params.id } }
+    ).then(function () {
+        res.json("Comment updated successfully!");
+    }).catch(function () {
+        console.log("Error updating comment.");
+        res.status(400).send({ error: "Error updating comment." });
+    })
+});
+
 router.delete("/api/comments/:id", function (req, res) {
     db.Comments.destroy({
         where: {
