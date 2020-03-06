@@ -38,8 +38,6 @@
     padding-bottom: 10px;
 }
 
-\
-
 #stackHeader {
   padding: 10px 0px 10px -5px;
 }
@@ -53,6 +51,8 @@
 #userName {
   margin-left: 5px;
   margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .submitComment {
