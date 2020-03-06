@@ -1,7 +1,8 @@
 .form-group {
-  padding: 5px;
-  margin: 10px 10px;
+ 
+  margin: 5px 10px;
 }
+
   body, html {
     height: 100%;
   }
@@ -19,9 +20,7 @@
     justify-content: center !important;
     text-align: center !important;
 }
-.navbar-brand{
-    
-}
+
 
 .nav-link {
     color: white;
@@ -60,4 +59,33 @@ img{
 
 #userComments {
     padding-bottom: 10px;
+}
+
+.btn{
+  margin-left: 10px;
+  width: 96%;
+  margin-bottom: 5px;
+}
+
+#signin{
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+#signincard{
+  width: 120%;
+}
+
+.logohome{
+  margin-top: 10px;
+}
+
+p{
+  margin-bottom: 0px;
+  font-family: 'Share Tech', sans-serif;
+}
+
+h5{
+
+  font-family: 'Noto Sans', sans-serif;
 }
