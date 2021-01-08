@@ -175,7 +175,7 @@ $(function () {
     function generateStack() {
         var searchText = $("#search").val();
         $.ajax({
-            url: `https://api.stackexchange.com/2.2/similar?order=desc&sort=relevance&title=${searchText}&site=stackoverflow`,
+            url: `https://api.stackexchange.com/2.2/search?order=desc&sort=relevance&intitle=${searchText}&site=stackoverflow`,
             method: "GET"
         }).then(function (response) {
             console.log(response);
